@@ -2,7 +2,7 @@
 
 Portofolio modern berbasis Next.js, TypeScript, Tailwind CSS, dan Framer Motion.
 
-## Menjalankan
+## Menjalankans
 
 ```bash
 npm install
