@@ -41,12 +41,12 @@ export function ContactSection() {
             <h3 className="mt-4 max-w-2xl 
               font-['Space_Grotesk'] text-3xl font-semibold 
               leading-tight sm:text-4xl">
-              Let&apos;s build something bold.
+              Have a project in mind?
             </h3>
             <p className="mt-4 max-w-xl text-white/68">
-              Tersedia untuk freelance projects, 
-              landing pages, dan portofolio modern 
-              yang lebih hidup.
+              Open to freelance work — product UI, landing pages, 
+              or a full build from design to working code. 
+              Tell me what you&apos;re trying to make.
             </p>
           </div>
 

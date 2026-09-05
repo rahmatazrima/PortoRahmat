@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SmoothAnchors } from "@/components/smooth-anchors";
 
 export const metadata: Metadata = {
   title: "Rahmat Azrima Portfolio",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body>{children}</body>
+      <body>
+        <SmoothAnchors />
+        {children}
+      </body>
     </html>
   );
 }

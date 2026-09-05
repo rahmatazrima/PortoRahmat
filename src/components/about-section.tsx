@@ -2,7 +2,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
-import { stats } from "@/data/portfolio";
+
 
 const hoverLift = {
   y: -6,
@@ -47,13 +47,14 @@ export function AboutSection() {
         </p>
         <h2 className="mt-4 max-w-md font-['Space_Grotesk'] 
           text-3xl font-semibold leading-tight sm:text-4xl">
-          Creativity is my passion.
+          I design it, then I build it.
         </h2>
         <p className="mt-5 max-w-xl text-base leading-8 
           text-white/65">
-          Saya passionate merancang halaman yang clean, elegan, 
-          dengan ritme visual kuat. Setiap detail diarahkan 
-          untuk terasa premium tanpa kehilangan keterbacaan.
+          Most designs stop at the mockup. Mine don&apos;t — I turn them 
+          into working, responsive front-ends myself. That means every 
+          decision I make in Figma has already passed the &quot;can this 
+          actually ship?&quot; test.
         </p>
         <a
           href="#contact"
@@ -65,7 +66,7 @@ export function AboutSection() {
         </a>
       </motion.div>
 
-      {/* Right: Stats & Focus */}
+      {/* Right: Bio detail */}
       <motion.div
         variants={container}
         initial="hidden"
@@ -74,45 +75,35 @@ export function AboutSection() {
           once: true,
           amount: 0.35,
         }}
-        className="grid gap-4"
+        className="rounded-[2rem] border border-amber-200/10 
+          bg-white/5 p-6 backdrop-blur-xl"
       >
-        {/* Focus */}
-        <motion.div
-          variants={fadeUp}
-          whileHover={hoverLift}
-          className="rounded-[2rem] border border-amber-200/10 
-            bg-white/5 p-6 backdrop-blur-xl"
-        >
-          <h3 className="text-lg font-semibold text-amber-100">Focus</h3>
+        <motion.div variants={fadeUp}>
+          <h3 className="text-lg font-semibold text-amber-100">
+            Who I am
+          </h3>
           <p className="mt-3 max-w-2xl text-sm leading-7 
             text-white/62 sm:text-base">
-            Menggabungkan design thinking, visual modern, 
-            dan implementasi front-end responsive.
+            I&apos;m a UI/UX designer from Banda Aceh, now finishing my 
+            Informatics degree at Syiah Kuala University (Feb 2026). 
+            I got into this through the design side, but I kept going 
+            until I could build what I designed.
           </p>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          variants={fadeUp}
-          whileHover={hoverLift}
-          className="grid gap-4 sm:grid-cols-3"
-        >
-          {stats.map(({ label, value }) => (
-            <div
-              key={label}
-              className="rounded-[2rem] border border-amber-200/10 
-                bg-white/5 p-5 backdrop-blur-xl"
-            >
-              <p className="text-xs uppercase tracking-[0.35em] 
-                text-white/40">
-                {label}
-              </p>
-              <p className="mt-3 font-['Space_Grotesk'] text-3xl 
-                font-semibold text-white">
-                {value}
-              </p>
-            </div>
-          ))}
+          <p className="mt-4 max-w-2xl text-sm leading-7 
+            text-white/62 sm:text-base">
+            Interned at the Aceh Provincial Social Affairs Office, 
+            where I redesigned their welfare system from paper 
+            workflows into a usable digital flow. In Bangkit Academy 
+            (Google, GoTo &amp; Traveloka) I built a weather-based 
+            planting app alongside ML and cloud teams. And as a 
+            freelance designer I&apos;ve shipped 50+ projects for clients.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 
+            text-white/62 sm:text-base">
+            One thing connects all of it: I take work from research 
+            and wireframes all the way to working, responsive code — 
+            so the design that gets approved is the one that ships.
+          </p>
         </motion.div>
       </motion.div>
     </section>

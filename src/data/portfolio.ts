@@ -15,9 +15,8 @@ export const profile: Profile = {
   email: "rahmatazrima2002@gmail.com",
   github: "https://github.com/rahmatazrima",
   linkedin: "https://linkedin.com/in/rahmatazrima",
-  headline:
-    "Merancang pengalaman digital intuitif yang user-centered dan responsif.",
-  bio: "UI/UX Designer dengan passion menciptakan produk digital yang memecahkan masalah nyata. Pengalaman dalam designing web & mobile interfaces melalui user research, wireframing, dan high-fidelity prototyping di Figma. Didukung solid foundation dalam software engineering dan front-end technologies.",
+  headline: "UI/UX designer who also builds the front-end.",
+  bio: "UI/UX designer who turns ideas into working products. I handle the whole loop — user research, flows, high-fidelity designs in Figma — and then I code them into responsive, real front-ends. Nothing gets lost between the mockup and the final screen.",
   gpa: "3.25/4.00",
   graduationDate: "Feb 2026",
 };
@@ -71,12 +70,12 @@ export const projects: Project[] = [
     name: "Bukhari Service Center",
     type: "Full Stack Web Application",
     description:
-      "Platform digitalisasi untuk sistem booking service mobile phone.",
+      "An online booking system for a mobile phone repair shop — pick a service, book a slot, done.",
     details: [
-      "Designed & developed full-stack web app dengan Next.js & TypeScript",
-      "UI/UX intuitif di Figma, implementasi responsive dengan Tailwind CSS",
-      "Backend dengan PostgreSQL & Prisma ORM untuk booking & spare parts management",
-      "Implemented PWA features untuk fast & reliable experience",
+      "Designed the UX in Figma, then built the app with Next.js and TypeScript",
+      "Responsive UI from the design system, implemented in Tailwind CSS",
+      "Backend with PostgreSQL & Prisma for bookings and spare parts",
+      "PWA features so it feels fast and works offline",
     ],
     stack: [
       "Next.js",
@@ -91,12 +90,12 @@ export const projects: Project[] = [
     id: "ppks",
     name: "PPKS Information System",
     type: "UI/UX Design Project",
-    description: "User-centered interface untuk Social Welfare Services system.",
+    description: "Redesigned a government social-welfare system so officers can actually use it.",
     details: [
-      "Designed structured user flows, wireframes & high-fidelity prototypes di Figma",
-      "Translated stakeholder requirements menjadi intuitive digital experiences",
-      "Developed consistent design system & reusable UI components",
-      "Applied usability principles, visual hierarchy & accessibility best practices",
+      "Mapped real user flows, then wireframes and high-fidelity prototypes in Figma",
+      "Turned stakeholder requirements into a clear, usable interface",
+      "Built one consistent design system with reusable components",
+      "Checked every screen for visual hierarchy and accessibility",
     ],
     stack: ["Figma", "User Research", "Design Systems", "Accessibility"],
   },
@@ -105,12 +104,12 @@ export const projects: Project[] = [
     name: "BooTani",
     type: "Weather-Based Crop Planting Prediction Mobile App",
     description:
-      "Mobile application prediksi optimal planting seasons berdasarkan weather data.",
+      "A mobile app that tells farmers when to plant, based on weather data.",
     details: [
-      "Collaborated dengan multidisciplinary teams (Mobile Dev, ML, Cloud)",
-      "Designed user flows & wireframes yang simplify complex agricultural info",
-      "Worked dengan Agile methodologies untuk deliver integrated digital product",
-      "Contributed ke product discussions & usability improvements",
+      "Worked in a multidisciplinary team — mobile, ML and cloud",
+      "Turned complex agriculture data into simple flows and wireframes",
+      "Shipped with an Agile process and clear product discussions",
+      "Pushed for usability at every step of the build",
     ],
     stack: ["User-Centered Design", "Agile", "Mobile Development"],
   },
@@ -124,12 +123,12 @@ export const experiences: Experience[] = [
     company: "Aceh Provincial Social Affairs Office",
     location: "Banda Aceh",
     description:
-      "Conducted UI/UX design untuk PPKS system dari concept hingga high-fidelity.",
+      "Designed the PPKS system end-to-end, from concept to high-fidelity.",
     highlights: [
-      "Created user flows, wireframes & interactive prototypes",
-      "Designed comprehensive design system untuk consistency",
-      "Collaborated dengan stakeholders transform requirements",
-      "Improved usability dengan visual hierarchy & accessibility",
+      "Built user flows, wireframes and interactive prototypes",
+      "Designed a complete design system for consistency",
+      "Worked with stakeholders to turn requirements into screens",
+      "Raised usability with clear hierarchy and accessibility",
     ],
   },
   {
@@ -139,12 +138,12 @@ export const experiences: Experience[] = [
     company: "Bangkit Academy led by Google, GoTo & Traveloka",
     location: "Online",
     description:
-      "Selected sebagai technology talent participant di prestigious program.",
+      "Selected to a national tech talent program run by Google, GoTo & Traveloka.",
     highlights: [
-      "Collaborated dengan ML & Cloud Computing cohorts",
-      "Built weather-based crop planting prediction application",
-      "Applied user-centered design principles throughout lifecycle",
-      "Participated dalam Agile development & sprint planning",
+      "Built a weather-based crop planting prediction app",
+      "Worked alongside ML and Cloud computing teams",
+      "Applied user-centered design through the whole lifecycle",
+      "Shipped in Agile sprints and stood up in planning",
     ],
   },
   {
@@ -153,11 +152,11 @@ export const experiences: Experience[] = [
     title: "Freelance Graphic Designer",
     company: "Self-employed",
     location: "Banda Aceh",
-    description: "Delivered 50+ graphic & digital design projects untuk clients.",
+    description: "Delivered 50+ graphic and digital design projects for clients.",
     highlights: [
-      "Social media campaigns, marketing materials & promotional assets",
-      "Direct collaboration dengan clients identify project objectives",
-      "Maintained consistent branding across projects",
+      "Social media campaigns, marketing materials and promotional assets",
+      "Worked directly with clients to nail down what each project needed",
+      "Kept branding consistent across every deliverable",
     ],
   },
 ];
@@ -171,15 +170,9 @@ export const education: Education[] = [
     location: "Banda Aceh",
     gpa: "3.25/4.00",
     highlights: [
-      "Relevant Coursework: HCI, Software Engineering, Web Development",
-      "Thesis: Web-based mobile phone service booking system (Next.js, PostgreSQL, PWA)",
-      "Streamline service booking, spare part management & notifications",
+      "Relevant coursework: HCI, software engineering, web development",
+      "Thesis: web-based mobile phone service booking system (Next.js, PostgreSQL, PWA)",
+      "Streamlined service booking, spare part management and notifications",
     ],
   },
-];
-
-export const stats = [
-  { label: "Projects", value: "05+" },
-  { label: "Years Experience", value: "02+" },
-  { label: "Style", value: "Warm Premium" },
 ];

@@ -1,8 +1,13 @@
 // src/components/hero.tsx
 "use client";
 import { motion } from "framer-motion";
-import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail, 
-  FiPhone } from "react-icons/fi";
+import {
+  FiArrowUpRight,
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+  FiPhone,
+} from "react-icons/fi";
 import Image from "next/image";
 import { profile } from "@/data/portfolio";
 
@@ -31,10 +36,7 @@ const hoverLift = {
 };
 
 export function Hero() {
-  const whatsappLink = `https://wa.me/${profile.phone.replace(
-    /[^\d]/g,
-    ""
-  )}`;
+  const whatsappLink = `https://wa.me/${profile.phone.replace(/[^\d]/g, "")}`;
 
   const socialLinks = [
     { label: "LinkedIn", href: profile.linkedin, icon: FiLinkedin },
@@ -119,62 +121,63 @@ export function Hero() {
         }}
         className="relative flex items-end justify-center"
       >
-        <div className="absolute inset-0 mx-auto h-[26rem] w-[22rem] 
+        <div
+          className="absolute inset-0 mx-auto h-[22rem] w-[19rem] 
           rounded-full bg-amber-500/25 blur-3xl 
-          sm:h-[34rem] sm:w-[28rem] lg:h-[42rem] lg:w-[34rem]" />
-        <div className="relative w-full max-w-[26rem] overflow-hidden 
+          sm:h-[28rem] sm:w-[24rem] lg:h-[35rem] lg:w-[30rem]"
+        />
+        <div className="relative w-full max-w-[32rem] overflow-hidden 
           rounded-[2.8rem] border border-white/10 
           bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(0,0,0,0.42))] 
           p-4 shadow-[0_30px_90px_rgba(0,0,0,0.55)] 
-          sm:max-w-[31rem] lg:max-w-[35rem]">
-          <div className="absolute inset-0 opacity-35 
+          sm:max-w-[38rem] lg:max-w-[42rem]"
+        >
+          <div
+            className="absolute inset-0 opacity-35 
             [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] 
-            [background-size:36px_36px]" />
-          <div className="relative flex h-[30rem] items-end justify-center 
+            [background-size:36px_36px]"
+          />
+          <div
+            className="relative flex h-[33rem] items-end justify-center 
             rounded-[2.1rem] 
             bg-[radial-gradient(circle_at_50%_28%,rgba(251,191,36,0.42),transparent_36%),radial-gradient(circle_at_50%_54%,rgba(190,18,60,0.2),transparent_48%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] 
-            sm:h-[38rem] lg:h-[46rem]">
-            <div className="absolute left-5 top-5 rounded-full 
+            sm:h-[40rem] lg:h-[47rem]"
+          >
+            <div
+              className="absolute left-5 top-5 z-10 rounded-full 
               border border-amber-200/15 bg-black/30 px-4 py-2 
               text-[10px] uppercase tracking-[0.35em] 
-              text-amber-100/85 backdrop-blur-md sm:text-xs">
+              text-amber-100/85 backdrop-blur-md sm:text-xs"
+            >
               UI/UX Designer
             </div>
-            <div className="absolute left-5 top-16 rounded-full 
+            <div
+              className="absolute left-5 top-16 z-10 rounded-full 
               border border-amber-200/15 bg-black/30 px-4 py-2 
               text-[10px] uppercase tracking-[0.35em] 
-              text-amber-100/85 backdrop-blur-md sm:text-xs">
+              text-amber-100/85 backdrop-blur-md sm:text-xs"
+            >
               Front-End Dev
             </div>
-            <div className="absolute right-5 top-5 rounded-full 
+            <div
+              className="absolute right-5 top-5 z-10 rounded-full 
               border border-amber-200/15 bg-black/30 px-4 py-2 
               text-[10px] uppercase tracking-[0.35em] 
-              text-amber-100/85 backdrop-blur-md sm:text-xs">
+              text-amber-100/85 backdrop-blur-md sm:text-xs"
+            >
               Next.js / TS
             </div>
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="relative h-[28rem] w-[18rem] 
-                sm:h-[34rem] sm:w-[22rem] lg:h-[42rem] lg:w-[26rem]"
-            >
-              <Image
+            <div className="absolute inset-0 overflow-hidden rounded-[2.1rem]">
+              <img
                 src="/images/matt.png"
                 alt="Foto Rahmat Azrima"
-                fill
-                priority
-                sizes="(max-width: 640px) 288px, 
-                  (max-width: 1024px) 352px, 416px"
-                className="object-contain object-bottom 
-                  drop-shadow-[0_0_55px_rgba(251,191,36,0.28)]"
+                className="h-full w-full object-cover"
               />
-            </motion.div>
-            <div className="absolute inset-x-0 bottom-0 h-28 
-              bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
+            <div
+              className="absolute inset-x-0 bottom-0 h-28 
+              bg-gradient-to-t from-black/60 to-transparent"
+            />
           </div>
         </div>
       </motion.div>

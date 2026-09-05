@@ -27,7 +27,7 @@ export function ProjectsSection() {
           </p>
           <h2 className="mt-3 font-['Space_Grotesk'] text-3xl 
             font-semibold sm:text-4xl">
-            I make incredible projects
+            Work I&apos;ve shipped
           </h2>
         </div>
         <a
