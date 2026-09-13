@@ -55,9 +55,9 @@ export function ContactSection() {
             <a
               href={`mailto:${profile.email}`}
               className="inline-flex items-center gap-2 
-                rounded-full bg-amber-300 px-5 py-3 
-                font-semibold text-slate-950 
-                transition hover:bg-amber-200"
+                rounded-full bg-[#4a0712] px-5 py-3 
+                font-semibold text-white 
+                transition hover:bg-[#650a1b]"
             >
               <FiMail /> Email
             </a>

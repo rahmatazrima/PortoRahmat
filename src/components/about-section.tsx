@@ -59,8 +59,8 @@ export function AboutSection() {
         <a
           href="#contact"
           className="mt-6 inline-flex items-center gap-2 
-            rounded-full bg-amber-300 px-6 py-3 font-semibold 
-            text-slate-950 transition hover:bg-amber-200"
+            rounded-full bg-[#4a0712] px-6 py-3 font-semibold 
+            text-white transition hover:bg-[#650a1b]"
         >
           Get In Touch <FiArrowUpRight />
         </a>

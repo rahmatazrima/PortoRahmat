@@ -83,8 +83,8 @@ export function Hero() {
           <a
             href="#projects"
             className="inline-flex items-center gap-2 rounded-full 
-              bg-amber-300 px-6 py-3 font-semibold text-slate-950 
-              transition hover:-translate-y-0.5 hover:bg-amber-200"
+              bg-[#4a0712] px-6 py-3 font-semibold text-white 
+              transition hover:-translate-y-0.5 hover:bg-[#650a1b]"
           >
             View Projects <FiArrowUpRight />
           </a>
