@@ -8,7 +8,6 @@ import {
   FiMail,
   FiPhone,
 } from "react-icons/fi";
-import Image from "next/image";
 import { profile } from "@/data/portfolio";
 
 const fadeUp = {
@@ -138,32 +137,35 @@ export function Hero() {
             [background-size:36px_36px]"
           />
           <div
-            className="relative flex h-[33rem] items-end justify-center 
+            className="relative flex h-[26rem] items-end justify-center 
             rounded-[2.1rem] 
             bg-[radial-gradient(circle_at_50%_28%,rgba(251,191,36,0.42),transparent_36%),radial-gradient(circle_at_50%_54%,rgba(190,18,60,0.2),transparent_48%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] 
             sm:h-[40rem] lg:h-[47rem]"
           >
             <div
-              className="absolute left-5 top-5 z-10 rounded-full 
-              border border-amber-200/15 bg-black/30 px-4 py-2 
-              text-[10px] uppercase tracking-[0.35em] 
-              text-amber-100/85 backdrop-blur-md sm:text-xs"
+              className="absolute left-4 top-4 z-10 rounded-full 
+              border border-amber-200/15 bg-black/30 px-3 py-2 
+              text-[10px] uppercase tracking-[0.18em] 
+              text-amber-100/85 backdrop-blur-md sm:left-5 sm:top-5 
+              sm:px-4 sm:text-xs sm:tracking-[0.35em]"
             >
               UI/UX Designer
             </div>
             <div
-              className="absolute left-5 top-16 z-10 rounded-full 
-              border border-amber-200/15 bg-black/30 px-4 py-2 
-              text-[10px] uppercase tracking-[0.35em] 
-              text-amber-100/85 backdrop-blur-md sm:text-xs"
+              className="absolute left-4 top-14 z-10 rounded-full 
+              border border-amber-200/15 bg-black/30 px-3 py-2 
+              text-[10px] uppercase tracking-[0.18em] 
+              text-amber-100/85 backdrop-blur-md sm:left-5 sm:top-16 
+              sm:px-4 sm:text-xs sm:tracking-[0.35em]"
             >
               Front-End Dev
             </div>
             <div
-              className="absolute right-5 top-5 z-10 rounded-full 
-              border border-amber-200/15 bg-black/30 px-4 py-2 
-              text-[10px] uppercase tracking-[0.35em] 
-              text-amber-100/85 backdrop-blur-md sm:text-xs"
+              className="absolute right-4 top-4 z-10 rounded-full 
+              border border-amber-200/15 bg-black/30 px-3 py-2 
+              text-[10px] uppercase tracking-[0.18em] 
+              text-amber-100/85 backdrop-blur-md sm:right-5 sm:top-5 
+              sm:px-4 sm:text-xs sm:tracking-[0.35em]"
             >
               Next.js / TS
             </div>
@@ -187,8 +189,8 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex flex-col items-start gap-4 
-          lg:items-end lg:justify-self-end"
+        className="flex w-full flex-row items-center justify-center gap-6 
+          lg:w-auto lg:flex-col lg:items-end lg:justify-self-end"
       >
         {socialLinks.map((item) => {
           const Icon = item.icon;
@@ -200,6 +202,7 @@ export function Hero() {
               href={item.href}
               target="_blank"
               rel="noreferrer"
+              aria-label={item.label}
               className="text-lg font-semibold text-amber-100/85 
                 transition hover:text-white"
             >
@@ -211,6 +214,7 @@ export function Hero() {
           variants={fadeUp}
           whileHover={hoverLift}
           href={whatsappLink}
+          aria-label="WhatsApp"
           className="text-lg font-semibold text-amber-100/85 
             transition hover:text-white"
         >
@@ -224,7 +228,9 @@ export function Hero() {
         />
         <motion.a
           variants={fadeUp}
-          href="#about"
+          href="/ResumeRahmatAzrima.pdf"
+          target="_blank"
+          rel="noreferrer"
           className="hidden rotate-90 rounded-full 
             border border-amber-200/10 bg-white/5 px-4 py-2 
             text-xs uppercase tracking-[0.35em] text-amber-100/55 
