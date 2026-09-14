@@ -15,6 +15,7 @@ import {
 import { profile } from "@/data/portfolio";
 import { useLanguage } from "@/components/language-provider";
 import { uiText } from "@/data/translations";
+import { publicAsset } from "@/lib/public-asset";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -196,7 +197,7 @@ export function Hero() {
             </div>
             <div className="absolute inset-0 overflow-hidden rounded-[2.1rem]">
               <img
-                src="/images/matt.png"
+                src={publicAsset("/images/matt.png")}
                 alt="Foto Rahmat Azrima"
                 className="h-full w-full object-cover"
               />
@@ -302,7 +303,7 @@ export function Hero() {
                 </h2>
                 <div className="flex shrink-0 items-center gap-2">
                   <a
-                    href="/ResumeRahmatAzrima.pdf"
+                    href={publicAsset("/ResumeRahmatAzrima.pdf")}
                     download
                     aria-label={text.downloadResume}
                     title={text.downloadResume}
@@ -313,7 +314,7 @@ export function Hero() {
                     <FiDownload aria-hidden="true" />
                   </a>
                   <a
-                    href="/ResumeRahmatAzrima.pdf"
+                    href={publicAsset("/ResumeRahmatAzrima.pdf")}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={text.openResume}
@@ -337,7 +338,7 @@ export function Hero() {
                 </div>
               </div>
               <iframe
-                src="/ResumeRahmatAzrima.pdf#view=FitH"
+                src={`${publicAsset("/ResumeRahmatAzrima.pdf")}#view=FitH`}
                 title="Rahmat Azrima Curriculum Vitae"
                 className="min-h-0 flex-1 bg-white"
               />

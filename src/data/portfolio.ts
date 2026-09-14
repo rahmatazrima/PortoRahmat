@@ -6,6 +6,7 @@ import type {
   Education,
   Skill,
 } from "@/types/portfolio";
+import { publicAsset } from "@/lib/public-asset";
 
 export const profile: Profile = {
   name: "Rahmat Azrima",
@@ -86,7 +87,7 @@ export const projects: Project[] = [
       "PWA",
     ],
     images: [
-      "/images/bsc3.png",
+      publicAsset("/images/bsc3.png"),
     ],
   },
   {
@@ -101,7 +102,7 @@ export const projects: Project[] = [
       "Checked every screen for visual hierarchy and accessibility",
     ],
     stack: ["Figma", "User Research", "Design Systems", "Accessibility"],
-    images: ["/images/pks.png"],
+    images: [publicAsset("/images/pks.png")],
   },
   {
     id: "bootani",
@@ -116,7 +117,7 @@ export const projects: Project[] = [
       "Pushed for usability at every step of the build",
     ],
     stack: ["User-Centered Design", "Agile", "Mobile Development"],
-    images: ["/images/botani.png"],
+    images: [publicAsset("/images/botani.png")],
   },
 ];
 
