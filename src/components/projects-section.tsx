@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
-import { projects, profile } from "@/data/portfolio";
+import { profile } from "@/data/portfolio";
+import { useLanguage } from "@/components/language-provider";
+import { getLocalizedProjects, uiText } from "@/data/translations";
 
 const hoverLift = {
   y: -6,
@@ -16,6 +18,10 @@ const fadeUp = {
 };
 
 export function ProjectsSection() {
+  const { locale } = useLanguage();
+  const text = uiText[locale];
+  const localizedProjects = getLocalizedProjects(locale);
+
   return (
     <section id="projects" className="px-2 py-4 lg:px-6">
       {/* Header */}
@@ -24,11 +30,11 @@ export function ProjectsSection() {
         <div>
           <p className="text-sm uppercase tracking-[0.4em] 
             text-amber-200/90">
-            Projects
+            {text.projectsLabel}
           </p>
           <h2 className="mt-3 font-['Space_Grotesk'] text-3xl 
             font-semibold sm:text-4xl">
-            Work I&apos;ve shipped
+            {text.projectsTitle}
           </h2>
         </div>
         <a
@@ -38,13 +44,13 @@ export function ProjectsSection() {
           className="inline-flex items-center gap-2 text-sm 
             font-semibold text-white/65 transition hover:text-white"
         >
-          View GitHub <FiArrowUpRight />
+          {text.viewGithub} <FiArrowUpRight />
         </a>
       </div>
 
       {/* Projects Grid */}
       <div className="grid gap-4">
-        {projects.map((project, index) => (
+        {localizedProjects.map((project, index) => (
           <motion.article
             key={project.id}
             whileHover={hoverLift}
@@ -66,7 +72,7 @@ export function ProjectsSection() {
             <div className={index % 2 === 1 ? "lg:order-2" : ""}>
               <p className="text-xs uppercase tracking-[0.4em] 
                 text-white/35">
-                0{index + 1} / 0{projects.length}
+                0{index + 1} / 0{localizedProjects.length}
               </p>
               <h3 className="mt-3 max-w-xl 
                 font-['Space_Grotesk'] text-2xl font-semibold 

@@ -2,15 +2,18 @@
 "use client";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-
-const navLinks = [
-  { href: "#about", label: "About Me" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
+import { useLanguage } from "@/components/language-provider";
+import { uiText } from "@/data/translations";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { locale, toggleLocale } = useLanguage();
+  const text = uiText[locale];
+  const navLinks = [
+    { href: "#about", label: text.nav.about },
+    { href: "#projects", label: text.nav.projects },
+    { href: "#contact", label: text.nav.contact },
+  ];
 
   return (
     <header className="flex flex-col gap-4 rounded-[1.6rem] 
@@ -24,18 +27,30 @@ export function Navbar() {
         >
           Rahmat Azrima
         </a>
-        <button
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleLocale}
+            aria-label={`Switch language to ${locale === "en" ? "Indonesian" : "English"}`}
+            className="rounded-full border border-white/10 bg-white/5 px-3 py-2 
+              text-[10px] font-bold tracking-[0.18em] text-white/70 
+              transition hover:bg-white/10 hover:text-white lg:hidden"
+          >
+            {locale.toUpperCase()}
+          </button>
+          <button
           type="button"
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={isMenuOpen ? text.closeMenu : text.openMenu}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((open) => !open)}
           className="inline-flex h-10 w-10 items-center justify-center 
             rounded-full border border-white/10 bg-white/5 text-xl 
             text-white transition hover:bg-white/10 lg:hidden"
-        >
-          {isMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
-        </button>
+          >
+            {isMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+          </button>
+        </div>
       </div>
 
       <nav
@@ -56,6 +71,16 @@ export function Navbar() {
             {link.label}
           </a>
         ))}
+        <button
+          type="button"
+          onClick={toggleLocale}
+          aria-label={`Switch language to ${locale === "en" ? "Indonesian" : "English"}`}
+          className="hidden rounded-full border border-white/10 bg-white/5 px-3 py-2 
+            text-[10px] font-bold tracking-[0.18em] text-white/70 
+            transition hover:bg-white/10 hover:text-white lg:inline-flex"
+        >
+          {locale.toUpperCase()}
+        </button>
       </nav>
     </header>
   );

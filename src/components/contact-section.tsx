@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiArrowUpRight } from "react-icons/fi";
 import { profile } from "@/data/portfolio";
+import { useLanguage } from "@/components/language-provider";
+import { uiText } from "@/data/translations";
 
 const hoverLift = {
   y: -6,
@@ -10,6 +12,8 @@ const hoverLift = {
 };
 
 export function ContactSection() {
+  const { locale } = useLanguage();
+  const text = uiText[locale];
   const whatsappLink = `https://wa.me/${profile.phone.replace(
     /[^\d]/g,
     ""
@@ -36,17 +40,15 @@ export function ContactSection() {
           <div>
             <p className="text-sm uppercase tracking-[0.4em] 
               text-amber-200/90">
-              Contact
+              {text.contact}
             </p>
             <h3 className="mt-4 max-w-2xl 
               font-['Space_Grotesk'] text-3xl font-semibold 
               leading-tight sm:text-4xl">
-              Have a project in mind?
+              {text.contactTitle}
             </h3>
             <p className="mt-4 max-w-xl text-white/68">
-              Open to freelance work — product UI, landing pages, 
-              or a full build from design to working code. 
-              Tell me what you&apos;re trying to make.
+              {text.contactBody}
             </p>
           </div>
 
@@ -59,7 +61,7 @@ export function ContactSection() {
                 font-semibold text-white 
                 transition hover:bg-[#650a1b]"
             >
-              <FiMail /> Email
+              <FiMail /> {text.email}
             </a>
             <a
               href={whatsappLink}
@@ -68,7 +70,7 @@ export function ContactSection() {
                 bg-white/5 px-5 py-3 font-semibold 
                 text-white transition hover:bg-white/10"
             >
-              <FiPhone /> WhatsApp
+              <FiPhone /> {text.whatsapp}
             </a>
             <a
               href={profile.linkedin}
@@ -79,7 +81,7 @@ export function ContactSection() {
                 bg-white/5 px-5 py-3 font-semibold 
                 text-white transition hover:bg-white/10"
             >
-              LinkedIn <FiArrowUpRight />
+              {text.linkedin} <FiArrowUpRight />
             </a>
           </div>
         </div>

@@ -13,6 +13,8 @@ import {
   FiX,
 } from "react-icons/fi";
 import { profile } from "@/data/portfolio";
+import { useLanguage } from "@/components/language-provider";
+import { uiText } from "@/data/translations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -40,6 +42,8 @@ const hoverLift = {
 
 export function Hero() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const { locale } = useLanguage();
+  const text = uiText[locale];
   const whatsappLink = `https://wa.me/${profile.phone.replace(/[^\d]/g, "")}`;
 
   useEffect(() => {
@@ -81,7 +85,7 @@ export function Hero() {
           variants={fadeUp}
           className="text-lg font-medium text-amber-200/90 sm:text-2xl"
         >
-          Hello, I&apos;m
+          {text.hello}
         </motion.h3>
         <motion.h1
           variants={fadeUp}
@@ -107,7 +111,7 @@ export function Hero() {
               bg-[#4a0712] px-6 py-3 font-semibold text-white 
               transition hover:-translate-y-0.5 hover:bg-[#650a1b]"
           >
-            View Projects <FiArrowUpRight />
+            {text.viewProjects} <FiArrowUpRight />
           </a>
           <a
             href="#contact"
@@ -116,7 +120,7 @@ export function Hero() {
               font-semibold text-white transition 
               hover:-translate-y-0.5 hover:bg-white/10"
           >
-            Contact Me
+            {text.contactMe}
           </a>
         </motion.div>
 
@@ -125,7 +129,7 @@ export function Hero() {
           className="flex items-center gap-4 pt-4 text-sm text-white/60"
         >
           <span className="h-px w-12 bg-amber-200/25" />
-          Open for freelance & collaboration
+          {text.availability}
         </motion.div>
       </motion.div>
 
@@ -258,7 +262,7 @@ export function Hero() {
             backdrop-blur-md transition hover:bg-white/10 
             lg:basis-auto lg:rotate-90"
         >
-          Resume
+          {text.resume}
         </motion.button>
       </motion.aside>
 
@@ -294,14 +298,14 @@ export function Hero() {
                   className="truncate font-['Space_Grotesk'] text-sm 
                     font-semibold text-white sm:text-base"
                 >
-                  Curriculum Vitae
+                  {text.resumeTitle}
                 </h2>
                 <div className="flex shrink-0 items-center gap-2">
                   <a
                     href="/ResumeRahmatAzrima.pdf"
                     download
-                    aria-label="Download resume"
-                    title="Download resume"
+                    aria-label={text.downloadResume}
+                    title={text.downloadResume}
                     className="inline-flex h-9 w-9 items-center justify-center 
                       rounded-full text-amber-100/75 transition 
                       hover:bg-white/10 hover:text-white"
@@ -312,8 +316,8 @@ export function Hero() {
                     href="/ResumeRahmatAzrima.pdf"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="Open resume in a new tab"
-                    title="Open resume in a new tab"
+                    aria-label={text.openResume}
+                    title={text.openResume}
                     className="inline-flex h-9 w-9 items-center justify-center 
                       rounded-full text-amber-100/75 transition 
                       hover:bg-white/10 hover:text-white"
@@ -323,7 +327,7 @@ export function Hero() {
                   <button
                     type="button"
                     onClick={() => setIsResumeOpen(false)}
-                    aria-label="Close resume"
+                    aria-label={text.closeResume}
                     className="inline-flex h-9 w-9 items-center justify-center 
                       rounded-full text-white/60 transition hover:bg-white/10 
                       hover:text-white"

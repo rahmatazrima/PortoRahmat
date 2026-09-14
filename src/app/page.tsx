@@ -6,10 +6,12 @@ import { AboutSection } from "@/components/about-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { ContactSection } from "@/components/contact-section";
+import { LanguageProvider } from "@/components/language-provider";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden 
+    <LanguageProvider>
+      <main className="relative min-h-screen overflow-hidden 
       bg-[#130707] text-white">
       {/* Background Gradients */}
       <div className="pointer-events-none absolute inset-0">
@@ -41,6 +43,7 @@ export default function Home() {
           <ContactSection />
         </div>
       </div>
-    </main>
+      </main>
+    </LanguageProvider>
   );
 }

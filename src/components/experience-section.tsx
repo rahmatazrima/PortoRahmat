@@ -1,7 +1,8 @@
 // src/components/experience-section.tsx
 "use client";
 import { motion } from "framer-motion";
-import { experiences, education, skills } from "@/data/portfolio";
+import { useLanguage } from "@/components/language-provider";
+import { getLocalizedEducation, getLocalizedExperiences, getLocalizedSkills, uiText } from "@/data/translations";
 
 const hoverLift = {
   y: -6,
@@ -9,6 +10,12 @@ const hoverLift = {
 };
 
 export function ExperienceSection() {
+  const { locale } = useLanguage();
+  const text = uiText[locale];
+  const localizedExperiences = getLocalizedExperiences(locale);
+  const localizedEducation = getLocalizedEducation(locale);
+  const localizedSkills = getLocalizedSkills(locale);
+
   return (
     <section className="grid gap-6 px-2 py-4 
       lg:grid-cols-2 lg:px-6">
@@ -25,15 +32,15 @@ export function ExperienceSection() {
       >
         <p className="text-sm uppercase tracking-[0.4em] 
           text-amber-200/90">
-          Experience & Education
+          {text.experienceEducation}
         </p>
 
         {/* Experience */}
         <div className="mt-5 space-y-6">
           <div>
-            <h3 className="font-semibold text-white mb-4">Experience</h3>
+            <h3 className="font-semibold text-white mb-4">{text.experience}</h3>
             <div className="space-y-5">
-              {experiences.map((item) => (
+              {localizedExperiences.map((item) => (
                 <div
                   key={item.id}
                   className="border-l border-amber-200/15 pl-4"
@@ -60,9 +67,9 @@ export function ExperienceSection() {
 
           {/* Education */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Education</h3>
+            <h3 className="font-semibold text-white mb-4">{text.education}</h3>
             <div className="space-y-5">
-              {education.map((item) => (
+              {localizedEducation.map((item) => (
                 <div
                   key={item.id}
                   className="border-l border-amber-200/15 pl-4"
@@ -80,7 +87,7 @@ export function ExperienceSection() {
                   </p>
                   {item.gpa && (
                     <p className="mt-1 text-sm text-amber-100/70">
-                      GPA: {item.gpa}
+                      {text.gpa}: {item.gpa}
                     </p>
                   )}
                   {item.highlights && 
@@ -114,10 +121,10 @@ export function ExperienceSection() {
       >
         <p className="text-sm uppercase tracking-[0.4em] 
           text-amber-200/90">
-          Technical Skills
+          {text.technicalSkills}
         </p>
         <div className="mt-5 space-y-6">
-          {skills.map(({ category, items }) => (
+          {localizedSkills.map(({ category, items }) => (
             <div key={category}>
               <h4 className="font-semibold text-white mb-3">
                 {category}
