@@ -2,6 +2,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   FiArrowUpRight,
   FiDownload,
@@ -267,29 +268,30 @@ export function Hero() {
         </motion.button>
       </motion.aside>
 
-      <AnimatePresence>
-        {isResumeOpen && (
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="resume-dialog-title"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center 
-              bg-black/75 p-3 backdrop-blur-sm sm:p-6"
-            onMouseDown={(event) => {
-              if (event.target === event.currentTarget) setIsResumeOpen(false);
-            }}
-          >
+      {isResumeOpen && typeof document !== "undefined" && createPortal(
+        <AnimatePresence>
+          {isResumeOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 18, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 18, scale: 0.98 }}
-              className="flex h-[min(92vh,56rem)] w-full max-w-5xl 
-                flex-col overflow-hidden rounded-2xl border border-white/15 
-                bg-[#171313] shadow-2xl"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="resume-dialog-title"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center 
+                bg-black/75 p-3 backdrop-blur-sm sm:p-6"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setIsResumeOpen(false);
+              }}
             >
+              <motion.div
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 18, scale: 0.98 }}
+                className="flex h-[min(92vh,56rem)] w-full max-w-5xl 
+                  flex-col overflow-hidden rounded-2xl border border-white/15 
+                  bg-[#171313] shadow-2xl"
+              >
               <div className="flex shrink-0 items-center justify-between 
                 gap-3 border-b border-white/10 bg-[#211b1c] px-4 py-3 
                 sm:px-5"
@@ -336,16 +338,18 @@ export function Hero() {
                     <FiX aria-hidden="true" />
                   </button>
                 </div>
-              </div>
-              <iframe
-                src={`${publicAsset("/ResumeRahmatAzrima.pdf")}#view=FitH`}
-                title="Rahmat Azrima Curriculum Vitae"
-                className="min-h-0 flex-1 bg-white"
-              />
+                </div>
+                <iframe
+                  src={`${publicAsset("/ResumeRahmatAzrima.pdf")}#view=FitH`}
+                  title="Rahmat Azrima Curriculum Vitae"
+                  className="min-h-0 flex-1 bg-white"
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }
