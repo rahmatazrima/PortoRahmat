@@ -1,6 +1,7 @@
 // src/components/projects-section.tsx
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import { projects, profile } from "@/data/portfolio";
 
@@ -109,18 +110,46 @@ export function ProjectsSection() {
               </div>
             </div>
 
-            {/* Image Placeholder */}
+            {/* Project gallery */}
             <div className={`${index % 2 === 1 ? "lg:order-1" : ""} 
               relative overflow-hidden rounded-[1.5rem] 
               border border-amber-200/10 
               bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.18),transparent_45%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(0,0,0,0.22))] 
               p-3`}>
-              <div className="aspect-[1.35] rounded-[1.25rem] 
-                bg-[linear-gradient(135deg,rgba(255,255,255,0.16),rgba(255,255,255,0.04)),linear-gradient(180deg,#171824,#090a10)] 
-                p-4">
-                <div className="h-full rounded-[1rem] 
-                  border border-amber-200/10 
-                  bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.25),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(0,0,0,0.15))]" />
+              <div className="grid gap-2">
+                {project.images?.[0] && (
+                  <div className="relative aspect-video overflow-hidden rounded-[1.25rem] 
+                    border border-white/10 bg-black/20">
+                    <Image
+                      src={project.images[0]}
+                      alt={`${project.name} preview`}
+                      fill
+                      sizes="(min-width: 1024px) 45vw, 100vw"
+                      className="rounded-[1.25rem] object-contain transition 
+                        duration-500 hover:scale-[1.02]"
+                    />
+                  </div>
+                )}
+                {project.images && project.images.length > 1 && (
+                  <div className="grid grid-cols-3 gap-2">
+                    {project.images.slice(1).map((image, imageIndex) => (
+                      <div
+                        key={image}
+                        className="relative aspect-video overflow-hidden rounded-lg 
+                          border border-white/10 bg-black/20"
+                      >
+                        <Image
+                          src={image}
+                          alt={`${project.name} preview ${imageIndex + 2}`}
+                          fill
+                          sizes="(min-width: 1024px) 15vw, 30vw"
+                          className="rounded-lg object-contain transition duration-500 
+                            hover:scale-[1.02]"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </motion.article>

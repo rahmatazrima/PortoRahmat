@@ -85,6 +85,9 @@ export const projects: Project[] = [
       "Prisma ORM",
       "PWA",
     ],
+    images: [
+      "/images/bsc3.png",
+    ],
   },
   {
     id: "ppks",
@@ -98,6 +101,7 @@ export const projects: Project[] = [
       "Checked every screen for visual hierarchy and accessibility",
     ],
     stack: ["Figma", "User Research", "Design Systems", "Accessibility"],
+    images: ["/images/pks.png"],
   },
   {
     id: "bootani",
@@ -112,6 +116,7 @@ export const projects: Project[] = [
       "Pushed for usability at every step of the build",
     ],
     stack: ["User-Centered Design", "Agile", "Mobile Development"],
+    images: ["/images/botani.png"],
   },
 ];
 

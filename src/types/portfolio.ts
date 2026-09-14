@@ -22,6 +22,7 @@ export interface Project {
   stack: string[];
   link?: string;
   image?: string;
+  images?: string[];
 }
 
 export interface Experience {
