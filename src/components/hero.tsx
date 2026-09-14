@@ -1,12 +1,16 @@
 // src/components/hero.tsx
 "use client";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   FiArrowUpRight,
+  FiDownload,
+  FiExternalLink,
   FiGithub,
   FiLinkedin,
   FiMail,
   FiPhone,
+  FiX,
 } from "react-icons/fi";
 import { profile } from "@/data/portfolio";
 
@@ -35,7 +39,24 @@ const hoverLift = {
 };
 
 export function Hero() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const whatsappLink = `https://wa.me/${profile.phone.replace(/[^\d]/g, "")}`;
+
+  useEffect(() => {
+    if (!isResumeOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsResumeOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isResumeOpen]);
 
   const socialLinks = [
     { label: "LinkedIn", href: profile.linkedin, icon: FiLinkedin },
@@ -226,19 +247,100 @@ export function Hero() {
             bg-gradient-to-b from-transparent via-amber-100/20 
             to-transparent lg:block"
         />
-        <motion.a
+        <motion.button
+          type="button"
           variants={fadeUp}
-          href="/ResumeRahmatAzrima.pdf"
-          target="_blank"
-          rel="noreferrer"
-          className="hidden rotate-90 rounded-full 
+          onClick={() => setIsResumeOpen(true)}
+          aria-haspopup="dialog"
+          className="inline-flex basis-full justify-center rounded-full 
             border border-amber-200/10 bg-white/5 px-4 py-2 
             text-xs uppercase tracking-[0.35em] text-amber-100/55 
-            backdrop-blur-md transition hover:bg-white/10 lg:inline-flex"
+            backdrop-blur-md transition hover:bg-white/10 
+            lg:basis-auto lg:rotate-90"
         >
           Resume
-        </motion.a>
+        </motion.button>
       </motion.aside>
+
+      <AnimatePresence>
+        {isResumeOpen && (
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="resume-dialog-title"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center 
+              bg-black/75 p-3 backdrop-blur-sm sm:p-6"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setIsResumeOpen(false);
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 18, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 18, scale: 0.98 }}
+              className="flex h-[min(92vh,56rem)] w-full max-w-5xl 
+                flex-col overflow-hidden rounded-2xl border border-white/15 
+                bg-[#171313] shadow-2xl"
+            >
+              <div className="flex shrink-0 items-center justify-between 
+                gap-3 border-b border-white/10 bg-[#211b1c] px-4 py-3 
+                sm:px-5"
+              >
+                <h2
+                  id="resume-dialog-title"
+                  className="truncate font-['Space_Grotesk'] text-sm 
+                    font-semibold text-white sm:text-base"
+                >
+                  Curriculum Vitae
+                </h2>
+                <div className="flex shrink-0 items-center gap-2">
+                  <a
+                    href="/ResumeRahmatAzrima.pdf"
+                    download
+                    aria-label="Download resume"
+                    title="Download resume"
+                    className="inline-flex h-9 w-9 items-center justify-center 
+                      rounded-full text-amber-100/75 transition 
+                      hover:bg-white/10 hover:text-white"
+                  >
+                    <FiDownload aria-hidden="true" />
+                  </a>
+                  <a
+                    href="/ResumeRahmatAzrima.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Open resume in a new tab"
+                    title="Open resume in a new tab"
+                    className="inline-flex h-9 w-9 items-center justify-center 
+                      rounded-full text-amber-100/75 transition 
+                      hover:bg-white/10 hover:text-white"
+                  >
+                    <FiExternalLink aria-hidden="true" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setIsResumeOpen(false)}
+                    aria-label="Close resume"
+                    className="inline-flex h-9 w-9 items-center justify-center 
+                      rounded-full text-white/60 transition hover:bg-white/10 
+                      hover:text-white"
+                  >
+                    <FiX aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+              <iframe
+                src="/ResumeRahmatAzrima.pdf#view=FitH"
+                title="Rahmat Azrima Curriculum Vitae"
+                className="min-h-0 flex-1 bg-white"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
